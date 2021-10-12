@@ -16,24 +16,29 @@ describe("firstPrioritiesCalc simple cases", () => {
 
 describe("firstPrioritiesCalc with single Math action", () => {
   it("[3 **]", () => {
-    expect(firstPrioritiesCalc([3, "**"])).toEqual([9])
+    expect(firstPrioritiesCalc([3, "**"])).toEqual([9]);
   });
 });
 
-  describe("priorities in brackets", () => {
-    it("( 3 + 2 )",  () => {
-      expect(firstPrioritiesCalc(["(", 3, "+", 2,")"])).toEqual([5])
-    });
+describe("priorities in brackets", () => {
+  it("( 3 + 2 )", () => {
+    expect(firstPrioritiesCalc(["(", 3, "+", 2, ")"])).toEqual([5]);
+  });
 
-    it("( 3 + 6 ) + 2 * 3",  () => {
-      expect(firstPrioritiesCalc(["(", 3, "+", 6,")", "+", 2, "*", 3])).toEqual([9, "+", 6]);
-    });
+  it("( 3 + 6 ) + 2 * 3", () => {
+    expect(firstPrioritiesCalc(["(", 3, "+", 6, ")", "+", 2, "*", 3])).toEqual([
+      9,
+      "+",
+      6,
+    ]);
+  });
 
-    it("( 3 + 6 ) / ( 2 * 3 )",  () => {
-      expect(firstPrioritiesCalc(["(", 3, "+", 6,")", "/", "(",1, "*", 3, ")"])).toEqual([3]);
-    });
+  it("( 3 + 6 ) / ( 2 * 3 )", () => {
+    expect(
+      firstPrioritiesCalc(["(", 3, "+", 6, ")", "/", "(", 1, "*", 3, ")"])
+    ).toEqual([3]);
+  });
 });
-
 
 describe("firstPrioritiesCalc mixed with second priorities cases", () => {
   it("[32, /, 32, +, 10, *, 10]", () => {

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "babel": "./node_modules/.bin/babel src --out-dir lib",
-    "start": "webpack -c webpack.config.js"
+    "start": "webpack -c webpack.config.js",
+    "eslint": "eslint",
+    "run_calc": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
